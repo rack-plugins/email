@@ -24,9 +24,9 @@ var Module = module.Module{
 
 func ServeFlag(serveCmd *cobra.Command) {
 	serveCmd.Flags().Bool(ID, DefaultEnable, Comment)
-	serveCmd.Flags().String("mail.username", "", "smtp (发件人)用户名")
-	serveCmd.Flags().String("mail.password", "", "smtp (发件人)密码")
-	serveCmd.Flags().String("mail.smtpserver", "", "smtp 服务器地址")
-	serveCmd.Flags().String("mail.smtpserverport", "", "smtp 服务器地址")
-	serveCmd.Flags().Bool("mail.insecureskipverify", true, "是否跳过证书验证")
+	serveCmd.Flags().String("email.username", "", "smtp (发件人)用户名")
+	serveCmd.Flags().String("email.password", "", "smtp (发件人)密码")
+	serveCmd.Flags().String("email.smtpserver", "", "smtp 服务器地址")
+	serveCmd.Flags().String("email.smtpserverport", "", "smtp 服务器地址")
+	serveCmd.Flags().Bool("email.insecureskipverify", true, "是否跳过证书验证")
 }

@@ -24,10 +24,10 @@ type Mailer struct {
 
 func NewMailer() *Mailer {
 	return &Mailer{
-		Username:       viper.GetString("mail.username"),
-		Password:       viper.GetString("mail.password"),
-		SmtpServer:     viper.GetString("mail.smtpserver"),
-		SmtpServerPort: viper.GetString("mail.smtpserverport"),
+		Username:       viper.GetString("email.username"),
+		Password:       viper.GetString("email.password"),
+		SmtpServer:     viper.GetString("email.smtpserver"),
+		SmtpServerPort: viper.GetString("email.smtpserverport"),
 	}
 }
 
@@ -48,7 +48,7 @@ func Mailto(letter *Letter) error {
 
 	d := gomail.NewDialer(host, port, username, password)
 
-	if viper.GetBool("mail.insecureskipverify") {
+	if viper.GetBool("email.insecureskipverify") {
 		d.TLSConfig = &tls.Config{InsecureSkipVerify: true} // 解决 x509: certificate signed by unknown authority 报错问题, 关掉 tls 认证
 	}
 

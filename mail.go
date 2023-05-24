@@ -23,7 +23,7 @@ func SendMail(c *gin.Context) {
 
 	if err := Mailto(&letter); err != nil {
 		ezap.Error(err.Error())
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err})
+		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 	ezap.Debug("邮件发送成功")

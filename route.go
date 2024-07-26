@@ -12,5 +12,5 @@ func AddRoute(g *gin.Engine) {
 	g.GET("/help/"+ID, help)
 
 	r := g.Group(RoutePrefix)
-	r.POST("/mailto", SendMail)
+	r.POST("/"+viper.GetString("email.prefix"), SendMail)
 }

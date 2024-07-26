@@ -24,6 +24,7 @@ var Module = module.Module{
 
 func ServeFlag(serveCmd *cobra.Command) {
 	serveCmd.Flags().Bool(ID, DefaultEnable, Comment)
+	serveCmd.Flags().String("email.prefix", "mailto", "自定义email 路由地址")
 	serveCmd.Flags().String("email.username", "", "smtp (发件人)用户名")
 	serveCmd.Flags().String("email.password", "", "smtp (发件人)密码")
 	serveCmd.Flags().String("email.smtpserver", "", "smtp 服务器地址")
